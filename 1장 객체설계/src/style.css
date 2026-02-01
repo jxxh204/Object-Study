@@ -1,0 +1,291 @@
+:root {
+  --color-bg: #1a1a2e;
+  --color-panel: #16213e;
+  --color-panel-border: #1a3a5c;
+  --color-danger: #e74c3c;
+  --color-success: #27ae60;
+  --color-warning: #f39c12;
+  --color-text: #e8e8e8;
+  --color-text-muted: #888;
+  --color-accent: #3498db;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Pretendard', 'Noto Sans KR',
+    sans-serif;
+  background: var(--color-bg);
+  color: var(--color-text);
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+#app {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px 20px;
+}
+
+/* Header */
+header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+header h1 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.subtitle {
+  color: var(--color-danger);
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+/* Panel */
+.panel {
+  background: var(--color-panel);
+  border: 1px solid var(--color-panel-border);
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.panel h2 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--color-panel-border);
+}
+
+.panel h2 .sub {
+  font-weight: 400;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+/* Main Layout - 3 columns */
+.main-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+/* Theater panel - red border to emphasize the problem */
+.theater-panel {
+  border-color: var(--color-danger);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.theater-panel h2 {
+  width: 100%;
+}
+
+.bad-design-note {
+  color: var(--color-danger);
+  font-size: 0.85rem;
+  margin-bottom: 20px;
+  opacity: 0.9;
+}
+
+.button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  margin-top: auto;
+}
+
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.btn-enter {
+  background: var(--color-danger);
+  color: white;
+}
+
+.btn-enter:hover {
+  background: #c0392b;
+  transform: translateY(-1px);
+}
+
+.btn-enter:disabled {
+  background: #555;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-reset {
+  background: transparent;
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-panel-border);
+}
+
+.btn-reset:hover {
+  border-color: var(--color-text-muted);
+  color: var(--color-text);
+}
+
+/* Info rows */
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 0;
+}
+
+.info-row .label {
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+}
+
+.info-row .value {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+/* Audience cards */
+.audience-card {
+  border: 1px solid var(--color-panel-border);
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 10px;
+  transition: all 0.3s ease;
+}
+
+.audience-card.current {
+  border-color: var(--color-accent);
+  background: rgba(52, 152, 219, 0.08);
+}
+
+.audience-card.done {
+  opacity: 0.45;
+}
+
+.audience-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.audience-name {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.badge {
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.badge-invitation {
+  background: var(--color-success);
+  color: white;
+}
+
+.badge-paying {
+  background: var(--color-warning);
+  color: #1a1a1a;
+}
+
+.badge-current {
+  background: var(--color-accent);
+  color: white;
+  margin-left: auto;
+}
+
+.audience-details .info-row {
+  padding: 3px 0;
+}
+
+/* Log panel */
+.log-panel {
+  max-height: 320px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.log-panel h2 {
+  flex-shrink: 0;
+}
+
+#action-log {
+  overflow-y: auto;
+  flex: 1;
+}
+
+.log-group {
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--color-panel-border);
+}
+
+.log-group:last-child {
+  border-bottom: none;
+}
+
+.log-header {
+  font-size: 0.8rem;
+  color: var(--color-accent);
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.log-entry {
+  font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+  font-size: 0.8rem;
+  padding: 3px 0;
+  line-height: 1.5;
+}
+
+.log-entry .chain {
+  color: var(--color-danger);
+  font-weight: 600;
+}
+
+.log-entry strong {
+  color: var(--color-accent);
+}
+
+/* Complete message */
+.log-complete {
+  text-align: center;
+  padding: 10px;
+  color: var(--color-success);
+  font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .main-layout {
+    grid-template-columns: 1fr;
+  }
+
+  header h1 {
+    font-size: 1.3rem;
+  }
+}

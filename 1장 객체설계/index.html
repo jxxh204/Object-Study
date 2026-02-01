@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>오브젝트 1장 - 티켓 판매 애플리케이션</title>
+  </head>
+  <body>
+    <div id="app">
+      <header>
+        <h1>오브젝트 1장: 티켓 판매 애플리케이션</h1>
+        <p class="subtitle">
+          "나쁜 설계" — Theater가 모든 객체의 내부를 직접 조작합니다
+        </p>
+      </header>
+
+      <div class="main-layout">
+        <section class="panel" id="ticket-office-panel">
+          <h2>매표소 <span class="sub">TicketOffice</span></h2>
+          <div id="ticket-office-state"></div>
+        </section>
+
+        <section class="panel theater-panel" id="theater-panel">
+          <h2>극장 <span class="sub">Theater</span></h2>
+          <p class="bad-design-note">
+            Theater.enter()가<br />모든 객체를 직접 조작합니다
+          </p>
+          <div class="button-group">
+            <button id="enter-btn" class="btn btn-enter">다음 관객 입장</button>
+            <button id="reset-btn" class="btn btn-reset">초기화</button>
+          </div>
+        </section>
+
+        <section class="panel" id="audience-panel">
+          <h2>관객 <span class="sub">Audience</span></h2>
+          <div id="audience-list"></div>
+        </section>
+      </div>
+
+      <section class="panel log-panel" id="log-panel">
+        <h2>실행 로그 <span class="sub">Theater의 동작 과정</span></h2>
+        <div id="action-log"></div>
+      </section>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
