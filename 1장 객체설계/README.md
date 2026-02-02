@@ -149,4 +149,4 @@ Audience, TicketSeller를 변경하면 Theater도 변경해야한다.
 
 ### 자율성을 높이자
 
-1. Theater의 enter 메서드에서
+1. Theater에서 TicketOffice로 접근하는 코드를 TicketSeller내부로 옮겨서 티켓 판매원이 티켓 판매소를 거치도록하자.
