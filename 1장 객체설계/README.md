@@ -105,8 +105,6 @@ enter(audience: Audience): string[] {
 
 - 소극장은 관람객의 가방을 열어 그 안에 초대장이 들어 있는지 살펴본다. 가방 안에 초대장이 들어 있으면 판매원은 매표소에 보관돼 있는 티켓을 관람객의 가방 안으로 옮긴다. 가방 안에 초대장이 들어 있지 않다면 관람객의 가방에서 티켓 금액만큼의 현금을 꺼내 매표소에 적립한 후에 매표소에 보관돼 있는 티켓을 관람객의 가방 안으로 옮긴다.
 
-![alt text](image.png)
-
 문제를 한줄로 정의하자면 "관람객과 판매원이 극장의 통제를 받는 수동적인 존재"
 
 문제
@@ -149,4 +147,12 @@ Audience, TicketSeller를 변경하면 Theater도 변경해야한다.
 
 ### 자율성을 높이자
 
-1. Theater에서 TicketOffice로 접근하는 코드를 TicketSeller내부로 옮겨서 티켓 판매원이 티켓 판매소를 거치도록하자.
+1. Theater에서 TicketOffice로 접근하는 코드를 TicketSeller내부로 옮겨서 티켓 판매원이 티켓 판매소를 거치도록하자. -> Theater는 TicketSeller에게 판매를 위임한다.
+   [커밋 참고](https://github.com/jxxh204/Object-Study/commit/d8f8627de104baa42a0b7390afb323f4cd607981)
+
+- TicketSeller의 getTicketOffice 메서드가 제거되었다. ticketOffice의 가시성은 private이고 접근 가능한 퍼블릭 메서드가 더 이상 없기 떄문에 외부에서 ticketOffice에 직접 접근은 불가하다. 결과적으로 ticketOffice의 TicketSeller안에서만 존재한다.
+  -> 이처럼 개념적이나 물리적으로 객체 내부의 세부적인 사항을 감추는 것을 캡슐화라고 부른다.
+
+2. TicketSeller 다음으로 Audience의 캡슐화를 개선.
+
+- Audience에 buy를 추가하고 구매로직을 가방에서 티켓을 꺼내는 로직을 적용하자.
