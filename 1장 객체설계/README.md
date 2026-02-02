@@ -132,4 +132,21 @@ enter(audience: Audience): string[] {
 
 그러나 의존성 제거가 답은 아닌 불필요한 의존성만 제거하는 것이 목적
 
+객체 사이의 의존성이 과한 경우 결합도가 높다고한다.
+
+![alt text](image-1.png)
+
 ### 설계를 개선해보자
+
+Theater 직접 접근-> Audience, TicketSeller : 결합된다는 것을 의미
+Audience, TicketSeller를 변경하면 Theater도 변경해야한다.
+
+**해결 방법.**
+
+- 관람객이 가방을 가지고 있다는 사실
+- 판매원이 매표소에 티켓을 판매한다는 사실
+  이 두가지를 극장이 알필요는 없다.
+
+### 자율성을 높이자
+
+1. Theater의 enter 메서드에서
