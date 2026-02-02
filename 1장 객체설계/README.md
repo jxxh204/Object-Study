@@ -156,3 +156,25 @@ Audience, TicketSeller를 변경하면 Theater도 변경해야한다.
 2. TicketSeller 다음으로 Audience의 캡슐화를 개선.
 
 - Audience에 buy를 추가하고 구매로직을 가방에서 티켓을 꺼내는 로직을 적용하자.
+
+[커밋 참고](https://github.com/jxxh204/Object-Study/commit/d8f8627de104baa42a0b7390afb323f4cd607981)
+
+### 개선된 점
+
+- 기능은 이전과 동일하지만 달라진 점은 Audience와 TicketSeller는 자신이 가지고 있는 소지품을 스스로 관리한다. (우리의 예상과 일치.)
+- Audience, TicketSeller의 내부 구현을 변경하더라도 Theater를 함께 변경할 필요가 없어졌다.
+
+### 어떻게 개선했는가.
+
+- TicketOffice의 모든 부분을 TicketSeller내부로 이동
+- 티켓구매를 위해 가방을 뒤지는 행위를 Audience내부로 이동
+- 자기 자신의 문제를 스스로 해결하도록 변경
+
+### 핵심
+
+- 객체 내부의 상태를 캡슐화하고 객체 간에 오직 메시지를 통해서만 상호작용하도록 만든것.
+- Theater는 TicketSeller의 내부를 모른다. 다만 icketSeller 가 sellTo 메시지를 이해하고 응답할 수 있다는 사실만 알고있음.
+- 밀접하게 연관된 작업만 수행하고 연관성 없는 작업은 다른 객체에게 위임하는 것을 **응집도**가 높다고 한다.
+- 응집도가 높기위해서는 객체가 자신의 데이터를 책임져야한다.
+
+### 절차지향, 객체지향
