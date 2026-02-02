@@ -1,3 +1,4 @@
+import type { Ticket } from "./Ticket";
 import { TicketOffice } from "./TicketOffice";
 
 export class TicketSeller {
@@ -9,5 +10,11 @@ export class TicketSeller {
 
   getTicketOffice(): TicketOffice {
     return this.ticketOffice;
+  }
+  getTicket(): Ticket | undefined {
+    return this.ticketOffice.getTicket();
+  }
+  plusAmount(amount: number): void {
+    return this.ticketOffice.plusAmount(amount);
   }
 }

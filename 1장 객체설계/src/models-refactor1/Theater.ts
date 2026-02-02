@@ -22,7 +22,7 @@ export class Theater {
         `<span class="chain">audience.getBag().hasInvitation()</span> → 초대장 확인됨`,
       );
 
-      const ticket = this.ticketSeller.getTicketOffice().getTicket();
+      const ticket = this.ticketSeller.getTicket();
       log.push(
         `<span class="chain">ticketSeller.getTicketOffice().getTicket()</span> → 티켓 꺼냄`,
       );
@@ -41,7 +41,7 @@ export class Theater {
         `<span class="chain">audience.getBag().hasInvitation()</span> → 초대장 없음`,
       );
 
-      const ticket = this.ticketSeller.getTicketOffice().getTicket();
+      const ticket = this.ticketSeller.getTicket();
       log.push(
         `<span class="chain">ticketSeller.getTicketOffice().getTicket()</span> → 티켓 꺼냄`,
       );
@@ -54,7 +54,7 @@ export class Theater {
           `<span class="chain">audience.getBag().minusAmount(${fee})</span> → 관객 가방에서 ${fee.toLocaleString()}원 차감`,
         );
 
-        this.ticketSeller.getTicketOffice().plusAmount(fee);
+        this.ticketSeller.plusAmount(fee);
         log.push(
           `<span class="chain">ticketSeller.getTicketOffice().plusAmount(${fee})</span> → 매표소에 ${fee.toLocaleString()}원 추가`,
         );
